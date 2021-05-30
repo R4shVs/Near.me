@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- Background schermata -->
+	<item>
+		<color android:color="@color/splash_background"/>
+	</item>
+	
+	<!-- Immagine contenente il logo dell'applicazione  -->
+	<item
+		android:width="230dp"
+		android:height="230dp"
+        android:bottom="200dp"
+		android:gravity="center">
+		<bitmap
+			android:gravity="fill_horizontal|fill_vertical"
+			android:src="@drawable/near_me_logo"
+			android:tileMode="disabled"/>
+	</item>
+	
+	<!-- Immagine contenente il nome dell'applicazione  -->
+	<item
+		android:width="200dp"
+		android:height="44dp"
+        android:top="300dp"
+		android:gravity="center">
+		<bitmap
+			android:gravity="fill_horizontal|fill_vertical"
+			android:src="@drawable/near_me_text"
+			android:tileMode="disabled"/>
+	</item>
+</layer-list>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="NearMe.Models.Address">
+    <Position X="5.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="13.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="NearMe.Models.NearbyPlaces">
+    <Position X="8.5" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAACAAAAAAAAAAAAAAAAEAAAgAAAAA=</HashCode>
+      <FileName>Models\NearbyPlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.Models.Place">
+    <Position X="12" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAiAAAAAABAAAAAQAAAgAAAkCAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Place.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.Models.Radius">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Radius.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.Models.PlaceCategory">
+    <Position X="16.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\PlaceCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.Models.PlaceType">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAgAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\PlaceType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.Models.StartPoint">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\StartPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

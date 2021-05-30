@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    xmlns:converter="clr-namespace:NearMe.Converters"
+    x:Class="NearMe.Views.PlacesOnMapPage"
+    Title="Mappa">
+
+    <ContentPage.Resources>
+        <converter:InverseBoolConverter x:Key="inverter" />
+    </ContentPage.Resources>
+
+    <AbsoluteLayout>
+        <Grid
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All">
+            <map:Map
+                x:Name="map"
+                ItemsSource="{Binding Pins}"
+                MapType="Street"
+                HasZoomEnabled="True"
+                HasScrollEnabled="True">
+                <map:Map.ItemTemplate>
+                    <DataTemplate>
+                        <map:Pin
+                            Position="{Binding Position}"
+                            Address="{Binding Address}"
+                            Label="{Binding Label}" />
+                    </DataTemplate>
+                </map:Map.ItemTemplate>
+            </map:Map>
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>

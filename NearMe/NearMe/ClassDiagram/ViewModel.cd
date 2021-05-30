@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="NearMe.ViewModels.BaseViewModel">
+    <Position X="11.5" Y="1.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NearMe.ViewModels.HomeViewModel">
+    <Position X="6" Y="4" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>CDAAEAAAAAAAAAAJICEAAJAAAAAhAAQAAAEAAEAAQAI=</HashCode>
+      <FileName>ViewModels\HomeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.ViewModels.NearMePlacesViewModel">
+    <Position X="13.75" Y="4" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>EAAgCACAAAAGCEAAACIAARAAAAABBABCAAAAAAAAQAI=</HashCode>
+      <FileName>ViewModels\NearMePlacesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.ViewModels.PlacesOnMapViewModel">
+    <Position X="18" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAgAAAAABCAAAAAAAAAAAAAAAEAACAAAAAA=</HashCode>
+      <FileName>ViewModels\PlacesOnMapViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.ViewModels.SelectPlaceTypeViewModel">
+    <Position X="10.25" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAEAAAACAAABAAAAEBEAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\SelectPlaceTypeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

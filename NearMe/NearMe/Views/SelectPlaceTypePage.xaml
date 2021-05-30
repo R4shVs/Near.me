@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    x:Class="NearMe.Views.SelectPlaceTypePage"
+    Title="Seleziona tipo di luogo">
+
+    <AbsoluteLayout>
+
+        <!-- Indicatore di attività per indicare il caricamento dei dati della pagina -->
+        <ActivityIndicator
+            AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IsRunning="{Binding IsLoadingData}"
+            IsVisible="{Binding IsLoadingData}"
+            Color="{StaticResource colorAccent}" />
+
+        <!-- Lista contenente le categorie di luoghi -->
+        <sf:SfListView
+            AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            ItemsSource="{Binding Categories}"
+            ItemSize="150"
+            IsScrollBarVisible="False"
+            SelectionBackgroundColor="Transparent">
+            <sf:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+
+                        <!-- Label con il nome della categoria -->
+                        <Label
+                            Margin="10, 10, 10, 0"
+                            Text="{Binding Categoty}"
+                            TextColor="Black"
+                            FontSize="24"
+                            FontAttributes="Bold" />
+
+                        <!-- Lista contenente le tipologie di luoghi -->
+                        <sf:SfListView
+                            ItemsSource="{Binding Types}"
+                            Orientation="Horizontal"
+                            ItemSize="110"
+                            IsScrollBarVisible="False"
+                            ItemTapped="PlaceTypeTapped"
+                            SelectionBackgroundColor="Transparent">
+                            <sf:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <!-- Frame con l'icona che rappresenta la tipologia -->
+                                    <Frame
+                                        Margin="20"
+                                        HasShadow="True"
+                                        Padding="12"
+                                        WidthRequest="100"
+                                        HeightRequest="100"
+                                        CornerRadius="10"
+                                        BackgroundColor="{StaticResource colorAccent}">
+                                        <Image
+                                            Aspect="AspectFit"
+                                            Source="{Binding Type, StringFormat='{0}.png'}" />
+                                    </Frame>
+                                </DataTemplate>
+                            </sf:SfListView.ItemTemplate>
+                        </sf:SfListView>
+                    </StackLayout>
+                </DataTemplate>
+            </sf:SfListView.ItemTemplate>
+        </sf:SfListView>
+    </AbsoluteLayout>
+</ContentPage>

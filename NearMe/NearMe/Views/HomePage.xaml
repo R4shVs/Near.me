@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:NearMe.Converters"
+    x:Class="NearMe.Views.HomePage"
+    NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Resources>
+        <converter:InverseBoolConverter x:Key="inverter" />
+        <converter:OpacityBoolConverter x:Key="opacity" />
+    </ContentPage.Resources>
+
+    <AbsoluteLayout>
+        
+        <!-- Frame contente i dati relativi alla poszione dell'utente -->
+        <Frame
+            AbsoluteLayout.LayoutBounds="0,0, 1, 180"
+            AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
+            BackgroundColor="{StaticResource colorPrimary}">
+            <StackLayout>
+                <Label
+                    Margin="0, 0, 0, 10"
+                    Text="Posizione attuale"
+                    TextColor="White"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center" />
+
+                <!-- Mentre prova ad ottenere la posizione attuale viene visualizzato un indicatore di attività -->
+                <ActivityIndicator
+                    Margin="0,14,0,0"
+                    IsVisible="{Binding IsAddressLoading}"
+                    IsRunning="{Binding IsAddressLoading}"
+                    Color="{StaticResource colorAccent}" />
+
+                <!-- Label che conterrà la posizione dell'utente -->
+                <Label
+                    Text="{Binding FormattedAddress}"
+                    TextColor="#E1E1E1"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    IsVisible="{Binding IsAddressLoading, Converter={StaticResource inverter}}" />
+                
+                <!-- Bottone per aggiornare la posizione dell'utente -->
+                <Label
+                    Margin="0,16,0,0"
+                    BackgroundColor="Transparent"
+                    Text="Aggiorna"
+                    TextColor="White"
+                    TextTransform="Uppercase"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    IsVisible="{Binding IsAddressLoading, Converter={StaticResource inverter}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateUserPositionCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Frame>
+
+        <!-- Layout contenente i componenti per la gestione del raggio di ricerca -->
+        <StackLayout
+            AbsoluteLayout.LayoutBounds="0, 200, 1, AutoSize"
+            AbsoluteLayout.LayoutFlags="WidthProportional"
+            Margin="32,0,32,0"
+            HorizontalOptions="Start">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Text="Distanza di ricerca"
+                    TextColor="Black"
+                    FontSize="22"
+                    FontAttributes="Bold" />
+                
+                <!-- Switch per abilitare/disabilitare il raggio di ricerca -->
+                <Switch
+                    Grid.Column="1"
+                    IsToggled="{Binding IsRadiusEnable}"
+                    ThumbColor="{StaticResource colorAccent}"
+                    OnColor="{StaticResource colorAccentLight}" />
+            </Grid>
+
+            <!--
+                Frame conente lo slider per selezione del raggio di ricerca
+                Se il raggio di ricerca è disabilitato il frame sarà opaco
+            -->
+            <Frame
+                Margin="0,10,0,24"
+                Padding="10"
+                CornerRadius="5"
+                HasShadow="True"
+                Opacity="{Binding IsRadiusEnable, Converter={StaticResource opacity}}">
+                <Grid
+                    x:Name="MainGrind"
+                    BackgroundColor="white">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Slider
+                        x:Name="SliderSearchRadius"
+                        Grid.Column="0"
+                        IsEnabled="{Binding IsRadiusEnable}"
+                        Maximum="{Binding RadiusMaxValue}"
+                        MaximumTrackColor="#6B6B6B"
+                        Minimum="{Binding RadiusMinValue}"
+                        MinimumTrackColor="{StaticResource colorAccentLight}"
+                        Value="{Binding RadiusValue}"
+                        ThumbColor="{StaticResource colorAccent}" />
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,0,10,0"
+                        Text="{Binding Value, StringFormat='{0} KM'}"
+                        TextColor="#6B6B6B"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="End"
+                        WidthRequest="60"
+                        BindingContext="{x:Reference SliderSearchRadius}" />
+                </Grid>
+            </Frame>
+
+            <!-- Frames che descrivono lo scopo del raggio di ricerca -->
+            
+            <!-- Frame visibili quando il raggio di ricerca è abilitato -->
+            <Frame
+                HasShadow="True"
+                IsVisible="{Binding IsRadiusEnable}">
+                <Label
+                    BindingContext="{x:Reference SliderSearchRadius}"
+                    Text="{Binding Value, StringFormat='Visualizza i luoghi intorno a te nel raggio di {0} KM. I risultati saranno ordinati per importanza.'}"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center" />
+            </Frame>
+            
+            <!-- Frame visibili quando il raggio di ricerca è disabilitato -->
+            <Frame
+                HasShadow="True"
+                IsVisible="{Binding IsRadiusEnable, Converter={StaticResource inverter}}">
+                <Label
+                    Text="Visualizza  i luoghi intorno a te. I risultati saranno ordinati in base alla loro distanza."
+                    FontSize="18"
+                    HorizontalTextAlignment="Center" />
+            </Frame>
+        </StackLayout>
+
+        <!-- Bottone per passare alla pagina di selezione del tipo di luoghi da cercare -->
+        <Button
+            AbsoluteLayout.LayoutBounds="0,1,1, 50"
+            AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+            IsEnabled="{Binding EnableNavigation}"
+            BackgroundColor="#169D58"
+            Text="Ricerca"
+            TextColor="White"
+            FontSize="16"
+            FontAttributes="Bold"
+            Command="{Binding NavToNextPageCommand}" />
+    </AbsoluteLayout>
+</ContentPage>

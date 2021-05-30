@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="NearMe.Views.NearMePlacesPage">
+    <Position X="10.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Views\NearMePlacesPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ViewModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NearMe.ViewModels.NearMePlacesViewModel">
+    <Position X="8.75" Y="5.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>EAAgCACAAAAGCEAAACIAARAAAAABBABCAAAAAAAAQAI=</HashCode>
+      <FileName>ViewModels\NearMePlacesViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_startPoint" />
+      <Field Name="_placeType" />
+      <Field Name="_nearbyPlaces" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="NearbyPlacesBuffer" />
+      <Property Name="NearbyPlaces" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NearMe.Models.StartPoint">
+    <Position X="13.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\StartPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.Models.PlaceType">
+    <Position X="13.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAgAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\PlaceType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NearMe.Models.NearbyPlaces">
+    <Position X="7.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAACAAAAAAAAAAAAAAAAEAAAgAAAAA=</HashCode>
+      <FileName>Models\NearbyPlaces.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Places" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NearMe.Models.Place">
+    <Position X="3.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAiAAAAAABAAAAAQAAAgAAAkCAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Place.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
